@@ -1,0 +1,196 @@
+/* ==========================================================================
+   基本設定 (Base & Reset)
+   ========================================================================== */
+
+:root {
+  /* -- 色彩變數 -- */
+  --color-background: #FFFFFF;
+  --color-text-primary: #333333;
+  --color-text-secondary: #555555;
+  --color-accent: #007BFF; /* 專業藍色作為點綴色 */
+
+  /* -- 字體變數 -- */
+  --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-size-base: 1rem; /* 基礎字體大小 (約 16px) */
+  --line-height-base: 1.6;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-sans);
+  color: var(--color-text-primary);
+  background-color: #000000; /* 全螢幕模式使用黑色背景 */
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  /* 將 body 設為 flex 容器來置中投影片 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 0.75em 0;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0 0 1em 0;
+}
+
+/* ==========================================================================
+   投影片主要結構 (Slide Structure)
+   ========================================================================== */
+
+.slide {
+  /* -- 整體佈局 -- */
+  aspect-ratio: 16 / 9; /* 設定 16:9 比例 */
+  max-width: 100vw; /* 限制最大寬度為螢幕寬度 */
+  max-height: 100vh; /* 限制最大高度為螢幕高度 */
+  width: auto; /* 讓寬度根據高度和比例自動計算 */
+  padding: 5% 8%; /* 適當的內邊距，避免內容貼邊 */
+  box-sizing: border-box; /* 確保 padding 不會影響總寬高 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 垂直置中內容 */
+  background-color: var(--color-background); /* 設定投影片背景為白色 */
+
+  /* -- 動畫效果 -- */
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   字體排印設定 (Typography)
+   ========================================================================== */
+
+.slide__title {
+  font-size: 2.5rem; /* 頁面標題 */
+  color: var(--color-text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.slide__title--main {
+  font-size: 4.5rem; /* 主題頁的主標題 */
+  font-weight: 700;
+  color: var(--color-accent); /* 使用點綴色 */
+  margin-bottom: 0.5rem;
+}
+
+.slide__subtitle {
+  font-size: 1.75rem; /* 主題頁的副標題 */
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+.slide__content p {
+  font-size: 1.1rem;
+  max-width: 80ch; /* 限制行寬以提升可讀性 */
+}
+
+/* ==========================================================================
+   版面佈局 (Layouts)
+   ========================================================================== */
+
+/* -- 多欄位水平佈局 (Horizontal Columns) -- */
+.slide__content--columns {
+  display: flex;
+  gap: 3rem; /* 欄位間距 */
+  width: 100%;
+}
+
+.column {
+  flex: 1; /* 讓所有欄位等寬 */
+  min-width: 0; /* 避免 flex 項目溢出 */
+}
+
+.column__heading {
+  font-size: 1.5rem;
+  color: var(--color-accent);
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.column__text {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+}
+
+/* -- 多區塊垂直堆疊佈局 (Vertical Stacked) -- */
+.slide__content--stacked {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* 區塊間距 */
+}
+
+.block {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.block__heading {
+  font-size: 1.5rem;
+}
+
+.block__text {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   特定版型微調 (Template-specific Adjustments)
+   ========================================================================== */
+
+#title-page-template {
+  text-align: center; /* 主題頁文字置中 */
+}
+
+/* ==========================================================================
+   導覽控制 (Navigation Controls)
+   ========================================================================== */
+
+.slide-nav {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 1000;
+}
+
+.slide-nav__button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.slide-nav__button:hover:not(:disabled) {
+  background-color: var(--color-accent);
+}
+
+.slide-nav__button:disabled {
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: not-allowed;
+}

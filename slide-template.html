@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>網頁簡報範本</title>
+    <link rel="stylesheet" href="slide-template.css">
+</head>
+<body>
+
+    <!-- 主題頁 (Title Page) -->
+    <section class="slide" id="title-page-template">
+        <h1 class="slide__title slide__title--main">[此處為主要標題]</h1>
+        <h2 class="slide__subtitle">[此處為副標題]</h2>
+    </section>
+
+    <!-- 單欄頁 (Single Column) -->
+    <section class="slide" id="single-col-template">
+        <h2 class="slide__title">[此處為頁面標題]</h2>
+        <div class="slide__content">
+            <p>[此處為內文區塊]</p>
+        </div>
+    </section>
+
+    <!-- 雙欄水平頁 (Two Columns - Horizontal) -->
+    <section class="slide" id="two-col-horizontal-template">
+        <h2 class="slide__title">[此處為頁面標題]</h2>
+        <div class="slide__content slide__content--columns">
+            <div class="column">
+                <h3 class="column__heading">[欄位一小標題]</h3>
+                <p class="column__text">[欄位一內文]</p>
+            </div>
+            <div class="column">
+                <h3 class="column__heading">[欄位二小標題]</h3>
+                <p class="column__text">[欄位二內文]</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 雙欄垂直頁 (Two Columns - Vertical) -->
+    <section class="slide" id="two-col-vertical-template">
+        <h2 class="slide__title">[此處為頁面標題]</h2>
+        <div class="slide__content slide__content--stacked">
+            <div class="block">
+                <h3 class="block__heading">[區塊一小標題]</h3>
+                <p class="block__text">[區塊一內文]</p>
+            </div>
+            <div class="block">
+                <h3 class="block__heading">[區塊二小標題]</h3>
+                <p class="block__text">[區塊二內文]</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 三欄水平頁 (Three Columns - Horizontal) -->
+    <section class="slide" id="three-col-horizontal-template">
+        <h2 class="slide__title">[此處為頁面標題]</h2>
+        <div class="slide__content slide__content--columns">
+            <div class="column">
+                <h3 class="column__heading">[欄位一小標題]</h3>
+                <p class="column__text">[欄位一內文]</p>
+            </div>
+            <div class="column">
+                <h3 class="column__heading">[欄位二小標題]</h3>
+                <p class="column__text">[欄位二內文]</p>
+            </div>
+            <div class="column">
+                <h3 class="column__heading">[欄位三小標題]</h3>
+                <p class="column__text">[欄位三內文]</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 導覽按鈕 -->
+    <nav class="slide-nav">
+        <button class="slide-nav__button" id="prev-slide" aria-label="上一張投影片">&lt;</button>
+        <button class="slide-nav__button" id="next-slide" aria-label="下一張投影片">&gt;</button>
+    </nav>
+
+    <script src="slide-template.js"></script>
+</body>
+</html>
