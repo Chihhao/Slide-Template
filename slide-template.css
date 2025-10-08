@@ -167,6 +167,10 @@ body.night-mode .column__heading {
   border-bottom-color: #444c56;
 }
 
+body.night-mode .title-page__text-container {
+  background-color: #333a45; /* 與夜間模式的 .block 顏色一致 */
+}
+
 
 /* ==========================================================================
    特定版型微調 (Template-specific Adjustments)
@@ -174,6 +178,32 @@ body.night-mode .column__heading {
 
 #title-page-template {
   text-align: center; /* 主題頁文字置中 */
+  justify-content: flex-start; /* 覆寫 .slide 的置中，讓內容從頂部開始 */
+  position: relative; /* 建立絕對定位的參考點 */
+}
+
+.title-page__icon {
+  font-size: 8rem; /* 設定一個非常大的 icon 尺寸 */
+  color: var(--color-accent); /* 讓 icon 顏色與主標題一致 */
+  /* margin-bottom: 1.5rem;  不再需要，因為文字容器已改為絕對定位 */
+}
+
+.title-page__text-container {
+  /* 使用絕對定位來達成相對於頁面的垂直置中 */
+  position: absolute;
+  top: 50%;
+  left: 0; /* 從左邊緣開始 */
+  transform: translate(-50%, -50%);
+  transform: translateY(-50%); /* 只需垂直置中 */
+  width: 100%; /* 讓容器與投影片同寬 */
+  height: 30%; /* 設定容器高度 */
+  background-color: #e6f2ff; /* 使用與主色調相關的淺藍色，使其更突出 */
+
+  /* 為了讓容器內的文字也置中 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ==========================================================================
