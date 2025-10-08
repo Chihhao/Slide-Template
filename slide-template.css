@@ -196,13 +196,15 @@ body.night-mode .column__heading {
   border-radius: 50%;
   width: 3rem;
   height: 3rem;
-  font-size: 1.5rem;
-  font-weight: bold;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: background-color 0.2s ease;
+}
+
+.slide-nav__button .mdi::before {
+  font-size: 1.8rem; /* 調整 icon 大小以符合按鈕 */
 }
 
 .slide-nav__button:hover:not(:disabled) {

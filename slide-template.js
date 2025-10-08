@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const prevButton = document.getElementById('prev-slide');
   const nextButton = document.getElementById('next-slide');
   const themeButton = document.getElementById('toggle-theme');
+  const themeIcon = themeButton.querySelector('i');
   // 設定當前投影片的索引，從第一張 (索引 0) 開始
   let currentIndex = 0;
   // 取得投影片總數
@@ -67,14 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
    * @description 切換白天與黑夜模式。
    */
   function toggleTheme() {
+    const body = document.body;
     // 切換 body 的 class
-    document.body.classList.toggle('night-mode');
-    // 根據當前模式更新按鈕圖示
-    if (document.body.classList.contains('night-mode')) {
-      themeButton.innerHTML = '☀️';
-    } else {
-      themeButton.innerHTML = '🌙';
-    }
+    body.classList.toggle('night-mode');
+
+    // 根據當前模式更新按鈕圖示的 class
+    const isNightMode = body.classList.contains('night-mode');
+    themeIcon.classList.remove(isNightMode ? 'mdi-weather-night' : 'mdi-white-balance-sunny');
+    themeIcon.classList.add(isNightMode ? 'mdi-white-balance-sunny' : 'mdi-weather-night');
   }
 
   /**
