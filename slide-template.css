@@ -47,15 +47,17 @@ p {
 .slide {
   /* -- 整體佈局 -- */
   aspect-ratio: 16 / 9; /* 設定 16:9 比例 */
-  max-width: 100vw; /* 限制最大寬度為螢幕寬度 */
-  max-height: 100vh; /* 限制最大高度為螢幕高度 */
-  width: auto; /* 讓寬度根據高度和比例自動計算 */
+  max-width: 95vw; /* 限制最大寬度為螢幕的 95%，營造邊框效果 */
+  max-height: 95vh; /* 限制最大高度為螢幕的 95%，營造邊框效果 */
+  height: 100%; /* 讓高度優先填滿，寬度根據比例自動計算，以適應不同螢幕比例 */
   padding: 5% 8%; /* 適當的內邊距，避免內容貼邊 */
   box-sizing: border-box; /* 確保 padding 不會影響總寬高 */
   display: flex;
   flex-direction: column;
   justify-content: center; /* 垂直置中內容 */
   background-color: var(--color-background); /* 設定投影片背景為白色 */
+  border-radius: 8px; /* 重新加入圓角以搭配外框效果 */
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5); /* 加入陰影使其更具立體感 */
 
   /* -- 動畫效果 -- */
   animation: fadeIn 0.8s ease-in-out;
