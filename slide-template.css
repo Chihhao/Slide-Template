@@ -177,33 +177,32 @@ body.night-mode .title-page__text-container {
    ========================================================================== */
 
 #title-page-template {
-  text-align: center; /* 主題頁文字置中 */
-  justify-content: flex-start; /* 覆寫 .slide 的置中，讓內容從頂部開始 */
-  position: relative; /* 建立絕對定位的參考點 */
+  /* 改為水平 flex 佈局 */
+  flex-direction: row;
+  align-items: center; /* 垂直置中左右兩個區塊 */
+  gap: 2rem; /* 在文字和圖示之間增加一些間距 */
+  overflow: hidden; /* 隱藏巨大的圖示超出邊界的部分 */
 }
 
 .title-page__icon {
-  font-size: 8rem; /* 設定一個非常大的 icon 尺寸 */
+  font-size: 90vh; /* 設定為螢幕高度的 90%，使其極度巨大 */
   color: var(--color-accent); /* 讓 icon 顏色與主標題一致 */
-  /* margin-bottom: 1.5rem;  不再需要，因為文字容器已改為絕對定位 */
+  line-height: 1; /* 避免巨大的行高影響佈局 */
+  opacity: 0.1; /* 降低不透明度，使其作為背景紋理，不干擾文字 */
+  flex-shrink: 0; /* 防止圖示在空間不足時被壓縮 */
 }
 
 .title-page__text-container {
-  /* 使用絕對定位來達成相對於頁面的垂直置中 */
-  position: absolute;
-  top: 50%;
-  left: 0; /* 從左邊緣開始 */
-  transform: translate(-50%, -50%);
-  transform: translateY(-50%); /* 只需垂直置中 */
-  width: 100%; /* 讓容器與投影片同寬 */
-  height: 30%; /* 設定容器高度 */
-  background-color: #e6f2ff; /* 使用與主色調相關的淺藍色，使其更突出 */
+  /* 移除絕對定位，改為 flex item */
+  flex: 1; /* 讓文字容器佔據剩餘的空間 */
+  min-width: 0; /* 避免 flex 項目溢出 */
+  background-color: transparent; /* 移除背景色，讓設計更簡潔 */
 
-  /* 為了讓容器內的文字也置中 */
+  /* 讓容器內的文字靠左對齊 */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* 將文字靠左對齊 */
 }
 
 /* ==========================================================================
