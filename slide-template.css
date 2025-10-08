@@ -47,9 +47,9 @@ p {
 .slide {
   /* -- 整體佈局 -- */
   aspect-ratio: 16 / 9; /* 設定 16:9 比例 */
-  max-width: 95vw; /* 限制最大寬度為螢幕的 95%，營造邊框效果 */
+  width: 90vw; /* 將寬度設為螢幕的 90%，高度將依比例自動計算 */
   max-height: 95vh; /* 限制最大高度為螢幕的 95%，營造邊框效果 */
-  height: 100%; /* 讓高度優先填滿，寬度根據比例自動計算，以適應不同螢幕比例 */
+  /* 移除 height 屬性，讓高度完全由 aspect-ratio 和 width 決定 */
   padding: 5% 8%; /* 適當的內邊距，避免內容貼邊 */
   box-sizing: border-box; /* 確保 padding 不會影響總寬高 */
   display: flex;
