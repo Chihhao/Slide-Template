@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 選取導覽按鈕
   const prevButton = document.getElementById('prev-slide');
   const nextButton = document.getElementById('next-slide');
+  const themeButton = document.getElementById('toggle-theme');
   // 設定當前投影片的索引，從第一張 (索引 0) 開始
   let currentIndex = 0;
   // 取得投影片總數
@@ -62,6 +63,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /**
+   * @function toggleTheme
+   * @description 切換白天與黑夜模式。
+   */
+  function toggleTheme() {
+    // 切換 body 的 class
+    document.body.classList.toggle('night-mode');
+    // 根據當前模式更新按鈕圖示
+    if (document.body.classList.contains('night-mode')) {
+      themeButton.innerHTML = '☀️';
+    } else {
+      themeButton.innerHTML = '🌙';
+    }
+  }
+
+  /**
    * @function navigateSlides
    * @description 處理鍵盤事件，根據按下的按鍵來導覽投影片。
    * @param {KeyboardEvent} event - 鍵盤事件物件。
@@ -87,5 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. 監聽按鈕點擊事件
   prevButton.addEventListener('click', goToPrevSlide);
   nextButton.addEventListener('click', goToNextSlide);
+  themeButton.addEventListener('click', toggleTheme);
 
 });

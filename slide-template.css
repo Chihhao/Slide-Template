@@ -151,6 +151,23 @@ p {
   margin-bottom: 0;
 }
 
+/* -- 夜間模式色彩覆寫 -- */
+body.night-mode {
+  --color-background: #22272E; /* 深色投影片背景 */
+  --color-text-primary: #C9D1D9; /* 亮色主要文字 */
+  --color-text-secondary: #8B949E; /* 亮色次要文字 */
+  --color-accent: #58A6FF; /* 對比度更高的點綴藍色 */
+}
+
+body.night-mode .block {
+  background-color: #333a45;
+}
+
+body.night-mode .column__heading {
+  border-bottom-color: #444c56;
+}
+
+
 /* ==========================================================================
    特定版型微調 (Template-specific Adjustments)
    ========================================================================== */
